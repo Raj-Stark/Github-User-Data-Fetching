@@ -1,16 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import { GithubProvider } from './context/context';
-import { Auth0Provider } from '@auth0/auth0-react';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import { GithubProvider } from "./context/context";
+import { Auth0Provider } from "@auth0/auth0-react";
+
+// dev-40ic8zt6sd78n65h.us.auth0.com
+
+// 6XF8ULYDfDqACDGXg0fDah6VeJaNXh4k
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <Auth0Provider
+    domain="dev-40ic8zt6sd78n65h.us.auth0.com"
+    clientId="6XF8ULYDfDqACDGXg0fDah6VeJaNXh4k"
+    redirectUri={window.location.origin}
+    cacheLocation="localstorage"
+  >
+    <GithubProvider>
+      <App />
+    </GithubProvider>
+  </Auth0Provider>,
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
